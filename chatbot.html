@@ -6,88 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat-Bot</title>
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin-top: 0px;
-            margin-bottom: 0px;
-
-        }
-
-        .send {
-            background-color: rgb(25, 135, 84);
-            color: white;
-            padding: 12px 20px;
-            margin-left: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 15px;
-            cursor: pointer;
-        }
-
-        .input {
-            padding: 12px 15px;
-            border-radius: 10px;
-            border-width: 1px;
-            font-size: 15px;
-            flex-grow: 1;
-        }
-
-        .flex {
-            display: flex;
-            margin-bottom: 60px;
-
-
-        }
-
-        .app {
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-
-
-
-        }
-
-        .chat-msg-user {
-            display: flex;
-            justify-content: end;
-            align-items: start;
-
-
-        }
-
-        .chat-msg-robot {
-            display: flex;
-            align-items: start;
-        }
-
-        .chat-msg {
-            background-color: rgb(238, 238, 238);
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-right: 10px;
-            margin-left: 10px;
-            margin-bottom: 20px;
-            max-width: 300px;
-
-
-        }
-
-        .rpro {
-            width: 45px;
-        }
-
-        .chat-msgg-cont {
-            flex-grow: 1;
-            margin-top: 20px;
-            overflow: scroll;
-            scrollbar-width: none;
-
-        }
+    
     </style>
 </head>
 
@@ -98,13 +17,12 @@
     <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
-    <script type="text/babel">
+    <script type="text/babel">    
         function ChatInput({ chatMessages, setChatMessages }) {
             const [inputText, setInputText] = React.useState("");
             function saveInputText(event) {
                 setInputText(event.target.value);
             }
-
             function sendMessage() {
                 const newChatMessages = [
                     ...chatMessages,
@@ -228,7 +146,6 @@
             // const setChtMessages =  array[1];
             return (
                 <div className="app">
-
                     <ChatMessages chatMessages={chatMessages} />
                     <ChatInput
                         chatMessages={chatMessages}
@@ -237,7 +154,6 @@
                 </div>
             );
         }
-
         const container = document.querySelector(".js-main");
         ReactDOM.createRoot(container).render(<App />);
     </script>
