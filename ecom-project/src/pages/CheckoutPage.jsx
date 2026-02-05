@@ -1,10 +1,20 @@
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import './CheckoutPage.css'
 import './checkout-header.css'
 import { formatMoney } from '../utils/money';
 
 export function CheckoutPage({cart}) {
-    return (
+    const [deliveryOption, setDeliveryOptions] = useState([]);
 
+    useEffect(() =>{
+        axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
+        .then((response) =>{
+            setDeliveryOptions(response.data)
+        })
+    },[])
+
+    return (
         <>
         <title>Checkout</title>
             <div className="checkout-header">
